@@ -1,0 +1,351 @@
+GET http://localhost:5000/clients
+
+###
+GET http://localhost:5000/clients/5
+
+###
+
+POST  http://localhost:5000/clients
+Content-Type: application/json
+
+    {
+        "nom_client": "traore",
+        "prenom_client": "mohamed",
+        "telephone_client": "76-83-18-79",
+        "adresse_client": "Bamako",
+        "photo_client":"image.png"
+    }
+###
+PATCH   http://localhost:5000/clients/1
+Content-Type: application/json
+
+    {
+        "nom": "Coulibaly",
+        "prenom": "sedou",
+        "tel": "69-20-10-30",
+        "adresse": "Segou"
+    }
+###
+DELETE   http://localhost:5000/clients/2
+###
+PUT http://localhost:5000/incrementerPoint/1
+
+###
+GET http://localhost:5000/clientRecherche/72-15-70-19
+
+########################commandes#####################################
+
+###
+GET http://localhost:5000/commandes
+
+###
+GET http://localhost:5000/ventes
+
+### 
+GET http://localhost:5000/commande
+
+
+###
+GET http://localhost:5000/commandes/1
+
+###
+
+POST  http://localhost:5000/commandes
+Content-Type: application/json
+
+    {
+        "date_commade": "2022-10-24",
+        "statut_commande": "vente"
+    }
+###
+PATCH   http://localhost:5000/commandes/1
+Content-Type: application/json
+
+    {
+        "id_client":2,
+        "date_commande": "2022-10-24",
+        "statut_commande": "commande"
+    }
+###
+DELETE   http://localhost:5000/commandes/2
+
+###
+PUT http://localhost:5000/changerStatutCommande/1
+
+###
+GET http://localhost:5000/getClientCommandeByIdCommande/1
+#######################################Paiement################################
+
+GET http://localhost:5000/paiements
+
+###
+GET http://localhost:5000/paiements/1
+
+###
+
+POST  http://localhost:5000/paiements
+Content-Type: application/json
+
+    {
+        "id_commande": 1,
+        "date_paiement":"",
+        "montant_paiement": 1000,
+        "mode_paiement": "espece"
+    }
+###
+PATCH   http://localhost:5000/paiements/1
+Content-Type: application/json
+
+    {
+        "id_commande": 2,
+        "date_paiement":"2022,10,24",
+        "montant_paiement": 5000,
+        "mode_paiement": "cheque"
+    }
+###
+DELETE   http://localhost:5000/paiements/2
+
+#################################### detail commande ##################################
+ GET http://localhost:5000/getDetailCommandesByCommandeId/1
+
+###
+GET http://localhost:5000/deatailCommandes/3
+
+###
+GET http://localhost:5000/detailDeLaCommandes/1
+
+### 
+POST  http://localhost:5000/deatailCommandes
+Content-Type: application/json
+
+    {
+        "id_commande": 1,
+        "id_article":3,
+        "quantite_article": 2
+    }
+###
+PATCH   http://localhost:5000/deatailCommandes/1
+Content-Type: application/json
+
+    {
+        "id_commande": 2,
+        "id_article":3,
+        "quantite_article": 2
+    }
+###
+DELETE   http://localhost:5000/deatailCommandes/1
+
+##################################livraison######################
+GET http://localhost:5000/livraisons
+
+###
+GET http://localhost:5000/livraisons/1
+
+###
+
+POST  http://localhost:5000/livraisons
+Content-Type: application/json
+
+    {
+        "id_livreur": 1,
+        "id_commande":2,
+        "montant_total": 10000,
+        "data_livraison":"2022,10,23"
+    }
+###
+PATCH   http://localhost:5000/livraisons/1
+Content-Type: application/json
+
+    {
+        "id_livreur": 1,
+        "id_commande":1,
+        "montant_total": 5000,
+        "data_livraison":"2022,10,24"
+    }
+###
+DELETE   http://localhost:5000/livraisons/1
+
+#################################article############################
+GET http://localhost:5000/articles
+
+###
+GET http://localhost:5000/articles/2
+
+###
+
+POST  http://localhost:5000/articles
+Content-Type: application/json
+
+    {
+        "nom":"boison",
+        "id_categorie":1,
+        "designation":"cocacola",
+        "tva":0.5,
+        "prix_unitaire_ht":500,
+        "prix_ttc":500.5
+        
+    }
+###
+PATCH   http://localhost:5000/articles/2
+Content-Type: application/json
+
+    {
+        "nom":"spirte",
+        "id_categorie":1,
+        "designation":"cocacola",
+        "tva":0.5,
+        "prix_unitaire_ht":500,
+        "prix_ttc":500.5
+    }
+###
+DELETE   http://localhost:5000/articles/2
+###
+
+####################################categorie######################################
+GET http://localhost:5000/categories
+
+###
+GET http://localhost:5000/categories/2
+
+###
+
+POST  http://localhost:5000/categories
+Content-Type: application/json
+
+    {
+        "id_famille_article":2,
+        "nom_categorie":"viande"
+        
+    }
+###
+PATCH   http://localhost:5000/categories/2
+Content-Type: application/json
+
+    {
+        "id_famille_article":1,
+        "nom_categorie":"viande"
+    }
+###
+DELETE   http://localhost:5000/categories/2
+
+###
+########################################### menu du jour #####################
+GET http://localhost:5000/menuJous
+
+###
+GET http://localhost:5000/menuJous/1
+
+###
+
+POST  http://localhost:5000/menuJous
+Content-Type: application/json
+
+    {
+        "date_menu_jour":"2022,11,12",
+        "article_id":3
+        
+    }
+###
+PATCH   http://localhost:5000/menuJous/2
+Content-Type: application/json
+
+    {
+        "nom_famille_article":"homme"
+    }
+###
+DELETE   http://localhost:5000/menuJous/2
+
+###
+###############################element##############################
+GET http://localhost:5000/elements
+
+###
+GET http://localhost:5000/elements/2
+
+###
+
+POST  http://localhost:5000/elements
+Content-Type: application/json
+
+    {
+        "id_article":1,
+        "nom_element":"poulet"
+        
+    }
+###
+PATCH   http://localhost:5000/elements/1
+Content-Type: application/json
+
+    {
+        "id_article":1,
+        "nom_element":"poisson"
+    }
+###
+DELETE   http://localhost:5000/elements/4
+###
+######################################## elements article ###########################
+
+GET http://localhost:5000/elementArticles/1
+
+###
+GET http://localhost:5000/getElementArticleById/
+
+###
+
+POST  http://localhost:5000/elementArticles
+Content-Type: application/json
+
+    {
+        
+    }
+###
+PATCH   http://localhost:5000/elementArticles/1
+Content-Type: application/json
+
+    {
+        "id_article":1,
+        "nom_element":"poisson"
+    }
+###
+DELETE   http://localhost:5000/elementArticles/2
+
+##########################################################################
+
+###
+POST http://localhost:5000/createUser
+Content-Type: application/json
+
+    {
+        "nomUser":"diarra",
+        "login":"diarra",
+        "password":"moussa"
+        
+    }
+
+###
+GET http://localhost:5000/getUser
+
+###
+PUT http://localhost:5000/incrementerPoint/1
+
+###
+PUT http://localhost:5000/changerStatutCommande/1
+
+###
+POST http://localhost:5000/createCompte
+Content-Type: application/json
+
+    {
+        "dateCreation":"2022,01,01",
+        "user_id":2
+        
+    }
+
+###
+GET http://localhost:5000/getCompte
+
+###
+GET http://localhost:5000/getCompteOfClientId
+
+###
+GET http://localhost:5000/getCommandeOfClientId
